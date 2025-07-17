@@ -1,0 +1,514 @@
+[
+  {
+    "type": "hysteria",
+    "tag": "hysteria-apple.com",
+    "server": "185.22.155.71",
+    "server_port": 10803,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "auth_str": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "apple.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "vless",
+    "tag": "vless-unknown",
+    "server": "185.22.155.105",
+    "server_port": 62750,
+    "uuid": "fdd2d176-2602-46f2-b694-ce247de88b22",
+    "flow": "xtls-rprx-vision",
+    "tls": {
+      "enabled": true,
+      "server_name": "www.paypal.com",
+      "reality": {
+        "enabled": true,
+        "public_key": "_E_YXE_gOkDrffe4t6gcajtnjFZAJ3g7ZwTJbL3IOHA#🇷🇺 俄罗斯 泽列诺格勒 02",
+        "short_id": ""
+      }
+    }
+  },
+  {
+    "type": "hysteria2",
+    "tag": "hysteria2-www.bing.com",
+    "server": "45.129.2.108",
+    "server_port": 50850,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "password": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "www.bing.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "hysteria2",
+    "tag": "hysteria2-www.bing.com",
+    "server": "46.17.41.217",
+    "server_port": 30033,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "password": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "www.bing.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "hysteria2",
+    "tag": "hysteria2-apple.com",
+    "server": "46.17.41.5",
+    "server_port": 12904,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "password": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "apple.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "hysteria",
+    "tag": "hysteria-apple.com",
+    "server": "176.32.35.226",
+    "server_port": 62003,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "auth_str": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "apple.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "hysteria",
+    "tag": "hysteria-www.bing.com",
+    "server": "208.87.243.151",
+    "server_port": 17549,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "auth_str": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "www.bing.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "hysteria",
+    "tag": "hysteria-apple.com",
+    "server": "208.87.243.187",
+    "server_port": 40528,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "auth_str": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "apple.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "hysteria2",
+    "tag": "hysteria2-apple.com",
+    "server": "108.181.5.130",
+    "server_port": 4710,
+    "up_mbps": 100,
+    "down_mbps": 100,
+    "password": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "apple.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "vless",
+    "tag": "vless-unknown",
+    "server": "108.181.3.68",
+    "server_port": 51499,
+    "uuid": "c643de0a-9678-4c18-9f55-58620425bac0",
+    "flow": "xtls-rprx-vision",
+    "tls": {
+      "enabled": true,
+      "server_name": "aws.amazon.com",
+      "reality": {
+        "enabled": true,
+        "public_key": "S4-VtlwDUlz7CbSlpf8mqD4ejRWFOISwCXqdtm3JCww#🇺🇸 美国 洛杉矶 04",
+        "short_id": ""
+      }
+    }
+  },
+  {
+    "type": "hysteria",
+    "tag": "hysteria-apple.com",
+    "server": "108.181.24.77",
+    "server_port": 11512,
+    "up_mbps": 50,
+    "down_mbps": 80,
+    "auth_str": "dongtaiwang.com",
+    "tls": {
+      "enabled": true,
+      "server_name": "apple.com",
+      "insecure": true
+    }
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇷🇺 俄罗斯 01",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1030,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇷🇺 俄罗斯 02",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1040,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇨🇦 加拿大 01",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1050,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇮🇳 印度 01",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1095,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇹🇷 土耳其 01",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1121,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇮🇹 意大利 01",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1138,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇸🇬 新加坡 01",
+    "server": "zoominsisa.dlayernet.xyz",
+    "server_port": 1223,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇸🇬 新加坡 02",
+    "server": "zoominsisa.dlayernet.xyz",
+    "server_port": 1235,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇸🇬 新加坡 03",
+    "server": "ontosaisa-b.dlayernet.xyz",
+    "server_port": 569,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇸🇬 新加坡 04",
+    "server": "ontosaisa-b.dlayernet.xyz",
+    "server_port": 570,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇸🇬 新加坡 05",
+    "server": "ontosaisa-b.dlayernet.xyz",
+    "server_port": 571,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇯🇵 日本 01",
+    "server": "zoominsisa.dlayernet.xyz",
+    "server_port": 1201,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇯🇵 日本 02",
+    "server": "zoominsisa.dlayernet.xyz",
+    "server_port": 1212,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 01",
+    "server": "cnusstart-a.dlayernet.xyz",
+    "server_port": 571,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 02",
+    "server": "cnusstart-a.dlayernet.xyz",
+    "server_port": 572,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 03",
+    "server": "cnusstart-a.dlayernet.xyz",
+    "server_port": 573,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 04",
+    "server": "cnusstart-a.dlayernet.xyz",
+    "server_port": 574,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 05",
+    "server": "cnusstart-a.dlayernet.xyz",
+    "server_port": 575,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 06",
+    "server": "cnusstart-b.dlayernet.xyz",
+    "server_port": 570,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 07",
+    "server": "cnusstart-b.dlayernet.xyz",
+    "server_port": 571,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 08",
+    "server": "cnusstart-b.dlayernet.xyz",
+    "server_port": 572,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 09",
+    "server": "cnusstart-b.dlayernet.xyz",
+    "server_port": 573,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇺🇸 美国 10",
+    "server": "cnusstart-b.dlayernet.xyz",
+    "server_port": 574,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇬🇧 英国 01",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1060,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇬🇧 英国 02",
+    "server": "onzzeru.dlayernet.xyz",
+    "server_port": 1072,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇰🇷 韩国 01",
+    "server": "zoominsisa.dlayernet.xyz",
+    "server_port": 1246,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 01",
+    "server": "crefthk1.middlenet.xyz",
+    "server_port": 563,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 02",
+    "server": "crefzhkb.middlenet.xyz",
+    "server_port": 564,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 03",
+    "server": "zrefhubhk3.middlenet.xyz",
+    "server_port": 564,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 04",
+    "server": "chinithk.middlenet.xyz",
+    "server_port": 565,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 05",
+    "server": "cnthk-a.middlenet.xyz",
+    "server_port": 601,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 06",
+    "server": "crefthk1.middlenet.xyz",
+    "server_port": 564,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 07",
+    "server": "chinithk.middlenet.xyz",
+    "server_port": 566,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 08",
+    "server": "dcgn.middlenet.xyz",
+    "server_port": 563,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 09",
+    "server": "dcgn.middlenet.xyz",
+    "server_port": 564,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 10",
+    "server": "chinithk.middlenet.xyz",
+    "server_port": 567,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 11",
+    "server": "cnthk-a.middlenet.xyz",
+    "server_port": 602,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 12",
+    "server": "zrefhubhk3.middlenet.xyz",
+    "server_port": 565,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 13",
+    "server": "crefzhkb.middlenet.xyz",
+    "server_port": 565,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 14",
+    "server": "cnthk-a.middlenet.xyz",
+    "server_port": 603,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 15",
+    "server": "cnthk-b.middlenet.xyz",
+    "server_port": 564,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 16",
+    "server": "onzoomhk.dlayernet.xyz",
+    "server_port": 570,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 17",
+    "server": "onzoomhk.dlayernet.xyz",
+    "server_port": 571,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  },
+  {
+    "type": "shadowsocks",
+    "tag": "ss-🇭🇰 香港 18",
+    "server": "onzoomhk.dlayernet.xyz",
+    "server_port": 572,
+    "method": "aes-128-gcm",
+    "password": "3ac442e7-7a95-4066-b744-36e3f29d632b"
+  }
+]

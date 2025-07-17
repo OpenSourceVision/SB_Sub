@@ -88,9 +88,12 @@ class SubscriptionConverter:
                 if not config.get(field):
                     raise ValueError(f"缺少必需字段: {field}")
             
+            # 获取节点名称，保持原有名称
+            node_name = config.get('ps', 'unknown')
+            
             outbound = {
                 "type": "vmess",
-                "tag": f"vmess-{config.get('ps', 'unknown')}",
+                "tag": node_name,
                 "server": config.get('add', ''),
                 "server_port": int(config.get('port', Config.DEFAULT_PORTS['vmess'])),
                 "uuid": config.get('id', ''),
@@ -156,9 +159,17 @@ class SubscriptionConverter:
             # 解析参数
             params = urllib.parse.parse_qs(params_part)
             
+            # 获取节点名称，优先从 fragment 获取，然后从 remarks 参数获取
+            node_name = "unknown"
+            if '#' in vless_str:
+                fragment = vless_str.split('#')[1]
+                node_name = urllib.parse.unquote(fragment)
+            elif 'remarks' in params:
+                node_name = params.get('remarks', ['unknown'])[0]
+            
             outbound = {
                 "type": "vless",
-                "tag": f"vless-{params.get('remarks', ['unknown'])[0]}",
+                "tag": node_name,
                 "server": server,
                 "server_port": int(port),
                 "uuid": uuid_part,
@@ -234,9 +245,17 @@ class SubscriptionConverter:
             # 解析参数
             params = urllib.parse.parse_qs(params_part)
             
+            # 获取节点名称，优先从 fragment 获取，然后从 remarks 参数获取
+            node_name = "unknown"
+            if '#' in trojan_str:
+                fragment = trojan_str.split('#')[1]
+                node_name = urllib.parse.unquote(fragment)
+            elif 'remarks' in params:
+                node_name = params.get('remarks', ['unknown'])[0]
+            
             outbound = {
                 "type": "trojan",
-                "tag": f"trojan-{params.get('remarks', ['unknown'])[0]}",
+                "tag": node_name,
                 "server": server,
                 "server_port": int(port),
                 "password": urllib.parse.unquote(password)
@@ -308,7 +327,7 @@ class SubscriptionConverter:
             
             outbound = {
                 "type": "shadowsocks",
-                "tag": f"ss-{name}",
+                "tag": name,
                 "server": server,
                 "server_port": int(port),
                 "method": method,
@@ -356,7 +375,7 @@ class SubscriptionConverter:
             
             outbound = {
                 "type": "hysteria",
-                "tag": f"hysteria-{params.get('peer', [node_name.replace(' ', '-')])[0]}",
+                "tag": node_name,
                 "server": server,
                 "server_port": int(port),
                 "up_mbps": int(params.get('upmbps', ['100'])[0]),
@@ -409,9 +428,15 @@ class SubscriptionConverter:
             # 解析参数
             params = urllib.parse.parse_qs(params_part)
             
+            # 获取节点名称，优先从 fragment 获取
+            node_name = "unknown"
+            if '#' in hysteria2_str:
+                fragment = hysteria2_str.split('#')[1]
+                node_name = urllib.parse.unquote(fragment)
+            
             outbound = {
                 "type": "hysteria2",
-                "tag": f"hysteria2-{params.get('sni', ['unknown'])[0]}",
+                "tag": node_name,
                 "server": server,
                 "server_port": int(port),
                 "up_mbps": int(params.get('up', ['100'])[0]),
@@ -525,7 +550,7 @@ class SubscriptionConverter:
             if proxy_type == 'vmess':
                 outbound = {
                     "type": "vmess",
-                    "tag": f"vmess-{proxy_name}",
+                    "tag": proxy_name,
                     "server": proxy.get('server', ''),
                     "server_port": int(proxy.get('port', 443)),
                     "uuid": proxy.get('uuid', ''),
@@ -562,7 +587,7 @@ class SubscriptionConverter:
             elif proxy_type == 'vless':
                 outbound = {
                     "type": "vless",
-                    "tag": f"vless-{proxy_name}",
+                    "tag": proxy_name,
                     "server": proxy.get('server', ''),
                     "server_port": int(proxy.get('port', 443)),
                     "uuid": proxy.get('uuid', ''),
@@ -607,7 +632,7 @@ class SubscriptionConverter:
             elif proxy_type == 'trojan':
                 outbound = {
                     "type": "trojan",
-                    "tag": f"trojan-{proxy_name}",
+                    "tag": proxy_name,
                     "server": proxy.get('server', ''),
                     "server_port": int(proxy.get('port', 443)),
                     "password": proxy.get('password', '')
@@ -635,7 +660,7 @@ class SubscriptionConverter:
             elif proxy_type == 'ss':
                 outbound = {
                     "type": "shadowsocks",
-                    "tag": f"ss-{proxy_name}",
+                    "tag": proxy_name,
                     "server": proxy.get('server', ''),
                     "server_port": int(proxy.get('port', 8388)),
                     "method": proxy.get('cipher', 'aes-256-gcm'),
@@ -658,7 +683,7 @@ class SubscriptionConverter:
             elif proxy_type == 'hysteria':
                 outbound = {
                     "type": "hysteria",
-                    "tag": f"hysteria-{proxy_name}",
+                    "tag": proxy_name,
                     "server": proxy.get('server', ''),
                     "server_port": int(proxy.get('port', 443)),
                     "up_mbps": proxy.get('up', 100),
@@ -686,7 +711,7 @@ class SubscriptionConverter:
             elif proxy_type == 'hysteria2':
                 outbound = {
                     "type": "hysteria2",
-                    "tag": f"hysteria2-{proxy_name}",
+                    "tag": proxy_name,
                     "server": proxy.get('server', ''),
                     "server_port": int(proxy.get('port', 443)),
                     "up_mbps": proxy.get('up', 100),

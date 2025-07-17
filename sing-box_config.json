@@ -32,21 +32,21 @@
     ],
     "rules": [
       {
-        "geosite": [
-          "category-ads-all"
+        "rule_set": [
+          "geosite-category-ads-all"
         ],
         "server": "dns_block",
         "disable_cache": true
       },
       {
-        "geosite": [
-          "cn"
+        "rule_set": [
+          "geosite-cn"
         ],
         "server": "dns_direct"
       },
       {
-        "geosite": [
-          "geolocation-!cn"
+        "rule_set": [
+          "geosite-geolocation-!cn"
         ],
         "server": "dns_proxy"
       }
@@ -805,16 +805,6 @@
     }
   ],
   "route": {
-    "geoip": {
-      "path": "geoip.db",
-      "download_url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip.db",
-      "download_detour": "direct"
-    },
-    "geosite": {
-      "path": "geosite.db",
-      "download_url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite.db",
-      "download_detour": "direct"
-    },
     "rule_set": [
       {
         "tag": "geosite-category-ads-all",
@@ -891,17 +881,5 @@
     ],
     "final": "默认",
     "auto_detect_interface": true
-  },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "metacubexd",
-      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "secret": "",
-      "default_mode": "rule",
-      "store_selected": true,
-      "cache_file": "cache.db"
-    }
   }
 }

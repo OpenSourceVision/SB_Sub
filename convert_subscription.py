@@ -823,16 +823,16 @@ class SubscriptionConverter:
                     ],
                     "rules": [
                         {
-                            "geosite": ["category-ads-all"],
+                            "rule_set": ["category-ads-all"],
                             "server": "dns_block",
                             "disable_cache": True
                         },
                         {
-                            "geosite": ["cn"],
+                            "rule_set": ["cn"],
                             "server": "dns_direct"
                         },
                         {
-                            "geosite": ["geolocation-!cn"],
+                            "rule_set": ["geolocation-!cn"],
                             "server": "dns_proxy"
                         }
                     ],
@@ -868,53 +868,26 @@ class SubscriptionConverter:
                 ],
                 "outbounds": [],
                 "route": {
-                    "geoip": {
-                        "path": "geoip.db",
-                        "download_url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip.db",
-                        "download_detour": "默认"
-                    },
-                    "geosite": {
-                        "path": "geosite.db",
-                        "download_url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite.db",
-                        "download_detour": "默认"
-                    },
                     "rules": [
                         {
                             "protocol": "dns",
                             "outbound": "dns-out"
                         },
                         {
-                            "geosite": ["category-ads-all"],
+                            "rule_set": ["category-ads-all"],
                             "outbound": "block"
                         },
                         {
-                            "geosite": ["cn"],
-                            "geoip": ["cn"],
+                            "rule_set": ["cn"],
                             "outbound": "direct"
                         },
                         {
-                            "geosite": ["geolocation-!cn"],
+                            "rule_set": ["geolocation-!cn"],
                             "outbound": "默认"
-                        },
-                        {
-                            "geoip": ["cn"],
-                            "outbound": "direct"
                         }
                     ],
                     "final": "默认",
                     "auto_detect_interface": True
-                },
-                "experimental": {
-                    "clash_api": {
-                        "external_controller": "127.0.0.1:9090",
-                        "external_ui": "metacubexd",
-                        "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-                        "external_ui_download_detour": "默认",
-                        "secret": "",
-                        "default_mode": "rule",
-                        "store_selected": True,
-                        "cache_file": "cache.db"
-                    }
                 }
             }
         
@@ -979,13 +952,13 @@ def main():
         # 读取订阅链接
         urls = converter.read_subscription_urls()
         if not urls:
-            print("❌ 没有找到有效的订阅链接")
+            print("没有找到有效的订阅链接")
             return
         
         # 处理订阅并解析节点
         proxies = converter.process_subscriptions(urls)
         if not proxies:
-            print("❌ 没有解析到任何节点")
+            print("没有解析到任何节点")
             return
         
         # 保存节点列表和配置文件
@@ -994,19 +967,19 @@ def main():
         converter.save_config(config)
         
         # 输出结果
-        print(f"✅ 转换完成！")
-        print(f"📥 从 {len(urls)} 个订阅链接获取节点")
-        print(f"🔄 总共解析到 {len(proxies)} 个代理节点")
-        print(f"📋 代理列表已保存到: {Config.OUTPUT_PROXIES}")
-        print(f"⚙️  配置文件已生成: {Config.OUTPUT_CONFIG}")
-        print(f"\n🎉 配置文件已准备就绪，可以直接使用！")
-        print(f"\n🚀 使用方法:")
+        print("转换完成！")
+        print(f"从 {len(urls)} 个订阅链接获取节点")
+        print(f"总共解析到 {len(proxies)} 个代理节点")
+        print(f"代理列表已保存到: {Config.OUTPUT_PROXIES}")
+        print(f"配置文件已生成: {Config.OUTPUT_CONFIG}")
+        print(f"\n配置文件已准备就绪，可以直接使用！")
+        print(f"\n使用方法:")
         print(f"   sing-box run -c {Config.OUTPUT_CONFIG}")
         
     except KeyboardInterrupt:
-        print("\n❌ 用户中断操作")
+        print("\n用户中断操作")
     except Exception as e:
-        print(f"\n❌ 程序执行出错: {e}")
+        print(f"\n程序执行出错: {e}")
 
 if __name__ == '__main__':
     main()

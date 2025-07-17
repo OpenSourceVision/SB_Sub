@@ -1,0 +1,165 @@
+name: Update Sing-box Subscription
+
+# 工作流触发条件
+on:
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: '强制更新配置文件'
+        required: false
+        default: 'false'
+        type: boolean
+      custom_message:
+        description: '自定义提交消息'
+        required: false
+        default: 'Auto update subscription config'
+        type: string
+  
+  # 定时触发 (每天 UTC 时间 02:00，即北京时间 10:00)
+  schedule:
+    - cron: '0 2 * * *'
+  
+  # 推送到 main 分支时触发 (可选)
+  push:
+    branches: [ main ]
+    paths:
+      - 'url.yaml'
+      - 'config.json'
+      - 'convert_subscription.py'
+
+# 工作流任务
+jobs:
+  update-subscription:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # 检出代码
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    # 设置 Python 环境
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+    
+    # 安装依赖
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    # 备份现有配置文件
+    - name: Backup existing configs
+      run: |
+        if [ -f "sing-box_config.json" ]; then
+          cp sing-box_config.json sing-box_config.json.backup
+        fi
+        if [ -f "sing-box.json" ]; then
+          cp sing-box.json sing-box.json.backup
+        fi
+    
+    # 运行订阅转换
+    - name: Run subscription converter
+      run: |
+        echo "开始转换订阅..."
+        python convert_subscription.py
+        echo "转换完成！"
+    
+    # 验证生成的配置文件
+    - name: Validate generated configs
+      run: |
+        if [ ! -f "sing-box_config.json" ]; then
+          echo "错误：未生成配置文件"
+          exit 1
+        fi
+        
+        # 检查配置文件是否为有效的 JSON
+        python -c "import json; json.load(open('sing-box_config.json'))"
+        echo "配置文件验证通过"
+        
+        # 显示统计信息
+        echo "=== 配置统计 ==="
+        if [ -f "sing-box.json" ]; then
+          PROXY_COUNT=$(python -c "import json; data=json.load(open('sing-box.json')); print(len(data))")
+          echo "代理节点数量: $PROXY_COUNT"
+        fi
+    
+    # 检查文件变化
+    - name: Check for changes
+      id: changes
+      run: |
+        if git diff --quiet HEAD -- sing-box_config.json sing-box.json; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+          echo "没有检测到配置文件变化"
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "检测到配置文件变化"
+        fi
+    
+    # 提交更改
+    - name: Commit and push changes
+      if: steps.changes.outputs.has_changes == 'true' || github.event.inputs.force_update == 'true'
+      run: |
+        # 配置 Git
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # 添加文件
+        git add sing-box_config.json sing-box.json
+        
+        # 准备提交消息
+        if [ "${{ github.event.inputs.custom_message }}" != "" ]; then
+          COMMIT_MSG="${{ github.event.inputs.custom_message }}"
+        else
+          COMMIT_MSG="🤖 Auto update subscription config $(date '+%Y-%m-%d %H:%M:%S UTC')"
+        fi
+        
+        # 添加统计信息到提交消息
+        if [ -f "sing-box.json" ]; then
+          PROXY_COUNT=$(python -c "import json; data=json.load(open('sing-box.json')); print(len(data))")
+          COMMIT_MSG="$COMMIT_MSG\n\n📊 代理节点: $PROXY_COUNT 个"
+        fi
+        
+        # 提交更改
+        git commit -m "$COMMIT_MSG"
+        git push
+        
+        echo "✅ 配置文件已更新并推送到仓库"
+    
+    # 清理备份文件
+    - name: Cleanup backup files
+      if: always()
+      run: |
+        rm -f sing-box_config.json.backup
+        rm -f sing-box.json.backup
+    
+    # 输出摘要
+    - name: Job summary
+      if: always()
+      run: |
+        echo "## 🔄 订阅更新摘要" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**触发方式**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "**执行时间**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "sing-box.json" ]; then
+          PROXY_COUNT=$(python -c "import json; data=json.load(open('sing-box.json')); print(len(data))")
+          echo "**代理节点数量**: $PROXY_COUNT" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+          echo "**状态**: ✅ 配置已更新" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "**状态**: ℹ️ 无变化" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📁 生成的文件" >> $GITHUB_STEP_SUMMARY
+        echo "- \`sing-box_config.json\` - 完整的 sing-box 配置文件" >> $GITHUB_STEP_SUMMARY
+        echo "- \`sing-box.json\` - 代理节点列表" >> $GITHUB_STEP_SUMMARY
